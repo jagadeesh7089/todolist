@@ -1,0 +1,13 @@
+ <div class="m-auto w-100 border border-2 mt-5">
+   <div class="m-auto  w-25">
+     
+    <input type="text" [(ngModel)]="newtodo" size="30" class="m-auto">
+
+     <button (click)="addtodo()" class="btn btn-success">Addtodo</button>
+
+     <div *ngFor="let t of todos; let i=index" class="m-3">
+         <app-todo [todo]="t" [key]="i" (deltodo)="deletetodo($event)" (updatestatus)="updatestatus($event)"></app-todo> 
+     </div>
+   </div>
+
+ </div>

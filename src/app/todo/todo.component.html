@@ -1,0 +1,4 @@
+<span [ngStyle]="todo.status?{textDecoration:'line-through'}:{textDecoration:''}">{{todo.title}}</span> 
+<button *ngIf="!todo.status" class="btn btn-info" (click)="update()">Done</button>
+<button *ngIf="todo.status" class="btn btn-warning" (click)="update()">Undo</button>
+<button (click)="del()" class="btn btn-danger mx-5">Delete</button>
