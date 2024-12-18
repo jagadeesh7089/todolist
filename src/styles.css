@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+.parent{
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.child{
+    width: 400px;
+    margin-bottom: 10px;
+}

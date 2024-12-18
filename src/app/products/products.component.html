@@ -1,4 +1,7 @@
 <p>products works!</p>
-<div *ngFor="let item of products">
-    <app-product [item]="item"></app-product>
+<div class="parent">
+    <div *ngFor="let item of products" class="child" >
+        <app-product [item]="item"></app-product>
+    </div>
 </div>
+
