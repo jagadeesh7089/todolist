@@ -1,0 +1,6 @@
+<p>countries works!</p>
+<div *ngIf="countries" ngClass="parent">
+    <div *ngFor="let country of countries" ngClass="child">
+        <app-country [country]="country" ></app-country>
+    </div>
+</div>
