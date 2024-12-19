@@ -5,7 +5,7 @@ import { EproductsComponent } from './eproducts/eproducts.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterLink,RouterOutlet],
+  imports: [RouterLink,RouterOutlet,],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
