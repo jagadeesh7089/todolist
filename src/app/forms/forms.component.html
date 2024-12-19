@@ -1,0 +1,16 @@
+<div [formGroup]="personForm">
+    <div>
+        <label>Firstname:</label>
+        <input type="text" formControlName="fname" >
+    </div>
+    <div>
+        <label>lasttname:</label>
+        <input type="text" formControlName="lname" >
+    </div>
+    <div>
+        <label>age:</label>
+        <input type="text" formControlName="age" >
+    </div>
+    <button (click)="print()">ClickME</button>
+</div>
+
