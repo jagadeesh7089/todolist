@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule} from '@angular/forms'
+import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators,} from '@angular/forms'
 @Component({
   selector: 'app-forms',
   imports: [ReactiveFormsModule,CommonModule],
@@ -9,24 +9,48 @@ import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule} f
 })
 export class FormsComponent {
 person:any=[]; 
+currentIndex:any
+upbtnstatus:boolean=false;
 personForm:FormGroup
  constructor( private fb:FormBuilder){
   this.personForm=this.fb.group({
-     fname:[''],
-     lname:[''],
-     age:['']
+     fname:['',Validators.required,Validators.minLength(4),Validators.maxLength(8)],
+     lname:['',Validators.required],
+     age:['',Validators.required,Validators.min(19),Validators.max(45)]
   });
+
+  console.log(this.personForm)
  }
 
    add(){
       this.person.push(this.personForm.value)
+      this.personForm.setValue({
+         fname:'',
+         lname:'',
+         age:''
+      })
+      console.log(this.personForm)
    }
 
    del(index:any){
+      this.person.splice(index,1)
+   }
+
+   edit(person:any,i:any){
+      this.upbtnstatus=true
+      this.personForm.setValue(person)
+      this.currentIndex=i
 
    }
-   edit(){
 
+   update(){
+      this.person[this.currentIndex]=this.personForm.value
+      this.upbtnstatus=false
+      this.personForm.setValue({
+         fname:'',
+         lname:'',
+         age:''
+      })  
    }
 
 
