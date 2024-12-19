@@ -11,6 +11,29 @@
         <label>age:</label>
         <input type="text" formControlName="age" >
     </div>
-    <button (click)="print()">ClickME</button>
+    <button (click)="add()">Addperson</button>
+    <button ></button> 
 </div>
+
+
+<table>
+    <thead>
+        <tr>
+            <td>Firstname</td>
+            <td>Lastname</td>
+            <td>Age</td>
+            <td>Delete</td>
+            <td>Edit</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of person ; let i=index">
+            <td>{{item.fname}}</td>
+            <td>{{item.lname}}</td>
+            <td>{{item.age}}</td>
+            <td><button (click)="del(i)">Delete</button></td>
+            <td><button (click)="edit()">Edit</button></td>
+        </tr>
+    </tbody>
+</table>
 
