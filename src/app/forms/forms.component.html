@@ -2,19 +2,19 @@
     <div>
         <label>Firstname:</label>
         <input type="text" formControlName="fname" >
-        <div *ngIf="personForm.controls['fname'].errors">Firstname must be Required</div>
+        <div *ngIf=" personForm.controls['fname'].touched&&personForm.controls['fname'].errors">Firstname must be Required</div>
     </div>
     <div>
         <label>lasttname:</label>
         <input type="text" formControlName="lname" >
-        <div *ngIf="personForm.controls['lname'].errors">lastname must be Required</div>
+        <div *ngIf=" personForm.controls['lname'].touched && personForm.controls['lname'].errors">lastname must be Required</div>
     </div>
     <div>
         <label>age:</label>
-        <input type="text" formControlName="age" >
-        <div *ngIf="personForm.controls['age'].errors">age must be Required</div>
+        <input type="number" formControlName="age" >
+        <div *ngIf=" personForm.controls['age'].touched && personForm.controls['age'].errors">age must be Required</div>
     </div>
-    <button (click)="add()" *ngIf="!upbtnstatus" >Addperson</button>
+    <button (click)="add()" *ngIf="!upbtnstatus" [disabled]="!personForm.valid" >Addperson</button>
     <button (click)="update()" *ngIf="upbtnstatus" >update</button> 
 </div>
 

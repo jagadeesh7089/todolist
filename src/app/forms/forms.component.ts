@@ -14,9 +14,9 @@ upbtnstatus:boolean=false;
 personForm:FormGroup
  constructor( private fb:FormBuilder){
   this.personForm=this.fb.group({
-     fname:['',Validators.required,Validators.minLength(4),Validators.maxLength(8)],
-     lname:['',Validators.required],
-     age:['',Validators.required,Validators.min(19),Validators.max(45)]
+     fname:['',[Validators.required,Validators.minLength(3),Validators.maxLength(9)]],
+     lname:['',[Validators.required]],
+     age:['',[Validators.required,Validators.min(19),Validators.max(40)]]
   });
 
   console.log(this.personForm)
@@ -24,12 +24,9 @@ personForm:FormGroup
 
    add(){
       this.person.push(this.personForm.value)
-      this.personForm.setValue({
-         fname:'',
-         lname:'',
-         age:''
-      })
+      this.personForm.reset()
       console.log(this.personForm)
+      this.person
    }
 
    del(index:any){
