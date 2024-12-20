@@ -22,5 +22,8 @@ export class CountrydetailsComponent {
       })
 
     })
+    // this.pr.queryParams.subscribe((data)=>{
+    //   console.log(data)
+    // })
   }
 }
