@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators,} from '@angular/forms'
+import { PostformsService } from '../postforms.service';
 @Component({
   selector: 'app-forms',
   imports: [ReactiveFormsModule,CommonModule],
@@ -12,42 +13,66 @@ person:any=[];
 currentIndex:any
 upbtnstatus:boolean=false;
 personForm:FormGroup
- constructor( private fb:FormBuilder){
+ constructor( private fb:FormBuilder,public postservices:PostformsService){
   this.personForm=this.fb.group({
-     fname:['',[Validators.required,Validators.minLength(3),Validators.maxLength(9)]],
+     fname:['',[Validators.required]],
      lname:['',[Validators.required]],
-     age:['',[Validators.required,Validators.min(19),Validators.max(40)]]
+     age:['',[Validators.required,]]   
   });
 
   console.log(this.personForm)
  }
 
    add(){
-      this.person.push(this.personForm.value)
+      // this.person.push(this.personForm.value)
+      // this.personForm.reset()
+      console.log(this.personForm.value)
+      this.postservices.postdata(this.personForm.value).subscribe((res)=>{
+         this.postservices.getdata().subscribe((res)=>{
+            this.person=res
+         })
+         
+      })
       this.personForm.reset()
-      console.log(this.personForm)
-      this.person
+   }
+   ngOnInit(){
+      this.postservices.getdata().subscribe((res)=>{
+         this.person=res
+      })
    }
 
-   del(index:any){
-      this.person.splice(index,1)
+   del(id:any){
+      this.postservices.deletedata(id).subscribe(((res)=>{
+
+         this.postservices.getdata().subscribe((res)=>{
+            this.person=res
+         })
+
+      }))
    }
 
-   edit(person:any,i:any){
+   edit(id:any,person:any){
+      this.currentIndex=id
       this.upbtnstatus=true
       this.personForm.setValue(person)
-      this.currentIndex=i
+   
+     
+    
 
    }
 
    update(){
-      this.person[this.currentIndex]=this.personForm.value
+    
+      // this.person[this.currentIndex]=this.personForm.value
       this.upbtnstatus=false
-      this.personForm.setValue({
-         fname:'',
-         lname:'',
-         age:''
-      })  
+      this.postservices.updatedata(this.currentIndex,this.personForm.value).subscribe((res)=>{
+
+         this.postservices.getdata().subscribe((res)=>{
+            this.person=res
+         })
+      })
+      this.personForm.reset()
+      
    }
 
 

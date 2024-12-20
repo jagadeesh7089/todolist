@@ -30,12 +30,12 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let item of person ; let i=index">
+        <tr *ngFor="let item of person ;">
             <td>{{item.fname}}</td>
             <td>{{item.lname}}</td>
             <td>{{item.age}}</td>
-            <td><button (click)="del(i)">Delete</button></td>
-            <td><button (click)="edit(item,i)">Edit</button></td>
+            <td><button (click)="del(item.id)">Delete</button></td>
+            <td><button (click)="edit(item.id,item)">Edit</button></td>
         </tr>
     </tbody>
 </table>
