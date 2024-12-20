@@ -1,6 +1,10 @@
 <p>countries works!</p>
 <div *ngIf="countries" ngClass="parent">
     <div *ngFor="let country of countries" ngClass="child">
-        <app-country [country]="country" ></app-country>
+        <a  [routerLink]="['countriesdetails',country.cca3]"><app-country [country]="country" ></app-country></a>
     </div>
 </div>
+
+<div><router-outlet></router-outlet></div>
+
+<div>

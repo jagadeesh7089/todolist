@@ -11,4 +11,8 @@ export class CountriesService {
     return this.http.get('https://restcountries.com/v3.1/all')
   }
 
+  getcountry(code:any){
+    return this.http.get(`https://restcountries.com/v3.1/alpha/${code}`)
+  }
+
 }
