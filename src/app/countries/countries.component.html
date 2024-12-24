@@ -1,6 +1,8 @@
 <p>countries works!</p>
   
-<div *ngFor="let country of allcountries">
-    <app-country [country]="country"></app-country>
-
+<div [ngClass]="'parent'">
+    <div *ngFor="let country of allcountries" [ngClass]="'child'">
+        <app-country [country]="country"></app-country>
+    
+    </div>
 </div>
