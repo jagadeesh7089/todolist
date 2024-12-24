@@ -1,0 +1,14 @@
+<p>login works!</p>
+
+<form [formGroup]="loginform">
+    <div>
+        <input type="text" formControlName="username">
+        <div *ngIf="loginform.controls['username'].touched && loginform.controls['username'].errors">
+            password must be required min 5 and max20 char
+        </div>
+    </div>
+    <div>
+        <input type="text" formControlName="password">
+    </div>
+    <button (click)="login()" [disabled]="!loginform.valid">Login</button>
+</form>
