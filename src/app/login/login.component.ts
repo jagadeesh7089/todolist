@@ -22,7 +22,6 @@ export class LoginComponent {
       password:['',[Validators.required,]]
     })
    }
-  
 
    login(){
       if(this.authservice.getlogin()){
