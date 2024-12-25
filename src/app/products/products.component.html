@@ -1,5 +1,5 @@
-<div>
-    <div *ngFor="let product of allproducts">
-        <app-product [product]="product"></app-product>
+<div [ngClass]="'parent'">
+    <div *ngFor="let product of allproducts" [ngClass]="'child'">
+        <a [routerLink]="'/home/productdetails'" [queryParams]="product" ><app-product [product]="product"></app-product></a>
     </div>
 </div>

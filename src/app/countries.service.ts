@@ -12,7 +12,7 @@ export class CountriesService {
    return   this.http.get('https://restcountries.com/v3.1/all')
   }
 
-  getcountry(){
-    return this.http.get('')
+  getcountry(cca3:any){
+    return this.http.get(`https://restcountries.com/v3.1/alpha/${cca3}`)
   }
 }

@@ -4,6 +4,8 @@ import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './auth.guard';
 import { CountriesComponent } from './countries/countries.component';
 import { ProductsComponent } from './products/products.component';
+import { CountrydetailsComponent } from './countrydetails/countrydetails.component';
+import { ProductdetailsComponent } from './productdetails/productdetails.component';
 
 
 export const routes: Routes = [
@@ -28,7 +30,16 @@ export const routes: Routes = [
             {
                 path:'products',
                 component:ProductsComponent
+            },
+            {
+                path:'countries/:cca3',
+                component:CountrydetailsComponent
+            },
+            {
+                path:'productdetails',
+                component:ProductdetailsComponent
             }
+           
         ]
     }
 

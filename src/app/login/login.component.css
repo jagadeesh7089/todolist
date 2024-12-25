@@ -1,0 +1,33 @@
+.login{
+    height: 100vh;
+    border: 2px solid red;
+    align-content: center;
+}
+.form{
+   
+    margin: auto;
+    border: 2px solid;
+    width: 480px;
+    height: 400px;
+
+}
+h1{
+
+    
+    text-align: center;
+    padding-top: 20px;
+    margin-bottom: 50px;
+}
+
+input{
+   width: 80%;
+   margin-left:40px;
+   height: 45px; 
+   border: 1px solid #ccc;
+   border-radius: 5px;
+   
+}
+
+input:focus{
+    
+}

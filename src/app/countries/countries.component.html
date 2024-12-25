@@ -1,8 +1,8 @@
 <p>countries works!</p>
   
-<div [ngClass]="'parent'">
+<a [ngClass]="'parent'">
     <div *ngFor="let country of allcountries" [ngClass]="'child'">
-        <app-country [country]="country"></app-country>
+       <a [routerLink]="[country.cca3]"><app-country [country]="country"></app-country></a>
     
     </div>
-</div>
+</a>
