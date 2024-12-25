@@ -19,8 +19,20 @@ export class LoginComponent {
   ){
     this.loginform=this.fb.group({
       username:['',[Validators.required,Validators.maxLength(20),Validators.minLength(5)]],
-      password:['',[Validators.required,]]
+      password:['',[Validators.required, this.passwordvalidation]]
     })
+    console.log(this.loginform)
+   }
+
+   passwordvalidation(password :any){
+    
+    var Regx=/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/
+     if(!Regx.test(password.value)){
+      return {error:'Password Error'}
+     }
+     else{
+      return null
+     }
    }
 
    login(){

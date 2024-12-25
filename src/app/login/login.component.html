@@ -6,14 +6,14 @@
             <div>
                 <input type="text" formControlName="username" placeholder=" Username">
                 <div *ngIf="loginform.controls['username'].touched && loginform.controls['username'].errors" class="error">
-                     password must be required min 5 and max20 char
+                     *Password must be required min 5 and max20 char
                 </div>
             </div> <br>
             <div>
                 <input type="text" formControlName="password" placeholder=" Password">
-                <div class="error">
-                        <div *ngIf="loginform.controls['password'].errors.['required']">Password must be required</div>
-                        <div>Password must be contain one Lowercase and Uppercase</div>
+                <div class="error" *ngIf="loginform.controls['password'].touched&& loginform.controls['password'].errors">
+                        <div *ngIf="loginform.controls['password'].errors['required']">*Password must be required</div>
+                        <div>*Password must be atleast one Num_Upper_Lowercase</div>
                 </div>
             </div><br>
             <button (click)="login()" [disabled]="!loginform.valid" class="btn btn-info">Login</button>

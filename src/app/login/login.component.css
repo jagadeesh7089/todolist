@@ -6,9 +6,13 @@
 .form{
    
     margin: auto;
-    border: 2px solid;
+    border: 2px #ccc;
     width: 480px;
     height: 400px;
+    box-shadow: 0 0 0 0.9px #a9a7a7 ;
+    
+    border-radius: 8px;
+
 
 }
 h1{
