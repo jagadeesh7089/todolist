@@ -1,5 +1,5 @@
 import { CounterState } from "./counter.reducer";
 
-export interface AppState{
+export interface AppState{ 
     counter:CounterState
 }
