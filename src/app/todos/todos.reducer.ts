@@ -3,7 +3,7 @@ import { addtodo } from './todos.action'
 import { Todo } from './todos.model'
  
 export interface TodosList{
-    todos:[]
+    todos:Todo[]
 }
 
 export const initialState:TodosList={
@@ -11,5 +11,5 @@ export const initialState:TodosList={
 }
 export const  todoreducer= createReducer(
     initialState,
-    on(addtodo,(state,{todo})=>({...state,todos:[]}))
+    on(addtodo,(state,{todo})=>({...state,todos:[...state.todos,todo]}))
 )
