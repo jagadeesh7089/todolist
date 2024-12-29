@@ -1,0 +1,19 @@
+<p>form works!</p>
+
+ <form  [formGroup]="loginform">
+   <div>
+    <input type="text" placeholder="Username" formControlName="username">
+   </div>
+   <div>
+    <input type="text" placeholder="Password" formControlName="password">
+   </div>
+   <div>
+    <input type="radio"  value="Female"   formControlName="gender">Female 
+    <input type="radio"  value="Male"     formControlName="gender"> Male 
+   </div>
+   <div>
+    <input type='number' placeholder="Age" formControlName="age">
+   </div>
+   <button   (click)="login()">LOGIN</button>
+   
+ </form>
