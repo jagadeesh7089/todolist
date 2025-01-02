@@ -1,0 +1,35 @@
+<h1>app</h1>
+
+<form [formGroup]="register">
+    <div>
+        <input type="text" formControlName="username" placeholder="username">
+        <div *ngIf="formControls['username'].touched">
+            <div *ngIf="formControls['username'].hasError('required')">username mustbe required</div> 
+            <div *ngIf="formControls['username'].hasError('minlength')">username mustbe min 4 characters Only</div>
+            <div *ngIf="formControls['username'].hasError('maxlength')">username mustbe max 12 characters Only</div>
+        </div>
+    </div>
+    <div>
+        <input type="email" formControlName="email" placeholder="email">
+        <div>
+
+        </div>
+    </div>
+    <div>
+        <input type="password" formControlName="password" placeholder="password">
+        <div>
+
+        </div>
+    </div>
+    <div >
+        <input type="number" formControlName="phone" placeholder="phone">
+        <div *ngIf="formControls['phone'].touched">
+            <div *ngIf="formControls['phone'].hasError('required')"> Phone number must be required</div>
+            <div *ngIf="formControls['phone'].hasError('pattern')"> 
+                phone number mustbe 10digits only
+            </div>
+        </div>
+    </div>
+
+    <button (click)="signup()">Signup</button>
+</form>
