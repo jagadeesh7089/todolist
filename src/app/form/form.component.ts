@@ -15,15 +15,16 @@ export class FormComponent {
       {
         username:new FormControl('',[Validators.required]),
         password:new FormControl(),
-        gender:new FormControl('',[Validators.required]),
-        age:new FormControl('',[Validators.required,this.checkage.bind(this)])
-      }
+        gender:new FormControl(null,[Validators.required]),
+        age:new FormControl('',[Validators.required])
+      },this.checkage.bind(this)
 
       
     )
 
-    checkage(){
-      console.log(this.loginform)
+    checkage(fb:any){
+      var gen=fb.get('gender').value
+      console.log(gen)
       return {error:'notvalid'}
     }
     ngOnInit(){
